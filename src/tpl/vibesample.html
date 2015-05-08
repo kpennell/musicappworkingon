@@ -1,0 +1,137 @@
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="app-content-body  app-content-full">
+
+<!-- hbox layout -->
+<div class="hbox hbox-auto-xs bg-light " ng-init="
+  app.settings.asideFolded = true;
+  app.settings.asideDock = false;
+  app.settings.container = false;
+  app.hideAside = true">
+
+  <!-- column -->
+  <div class="col w-xxl lter b-l">
+    <div class="wrapper-md">
+
+    <div class="m-b-sm text-md">
+  
+    Discover Live Music You Will Love in
+  
+    <span class="dropdown" dropdown on-toggle="toggled(open)">
+
+      <a href class="dropdown-toggle" dropdown-toggle>
+        SF
+      </a>
+
+      <ul class="dropdown-menu">
+        <li ng-repeat="city in cityoptions">
+          <a href>{{city}}</a>
+        </li>
+      </ul>
+    </span>
+
+
+
+    <br> 
+    <span class="dropdown numOfShows" dropdown on-toggle="toggled(open)">
+      {{filteredShows.length }} shows on
+      <a href class="dropdown-toggle" dropdown-toggle>
+         {{day | date: 'EEEE, MMMM d'}} 
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="day in days" ng-click="selectDay(day)">
+          <a href>{{day | date: 'EEEE, MMMM d'}}</a>  
+        </li>
+      </ul>
+    </span>
+
+    </ul>
+    </div>
+
+      <!-- ng-repeat goes here -->
+      <ul class="list-group no-bg no-borders pull-in">  
+         <li class="list-group-item" ng-repeat="show in filteredShows" ng-mouseover="menuMouse(show)" ng-mouseout="menuMouseout(show)" ng-class="{hoverListStyle: $index == hoveritem}">
+           
+           <span class="pull-right h3 text-muted m-l">
+           <i class="fa" ng-click="checkIfLoggedIn(show)" ng-class="{'fa-heart': loggedInUserFavorites[show.properties.id], 'fa-heart-o': !loggedInUserFavorites[show.properties.id]}"></i>
+     
+          <i class="fa fa-play" ng-click="player.play(show)" ng-show="track.visible != false"> </i>
+          <i class="fa fa-pause" ng-click="player.pause(show)" ng-show="track.visible == false"></i></span>
+
+            <span class="pull-left thumb-sm avatar m-r m-t-sm">
+              <img ng-src="{{show.properties.artwork_url}}" alt="..." class="r">
+            </span>
+            <div class="clear">
+            <div><a href>{{show.properties.artist}}</a></div>
+            <small class="text-muted"> {{show.properties.venue_name}}&nbsp;&middot;&nbsp; {{show.properties.date | num | date: 'EEEE, MMMM d h:mm a'}}</small>
+            <br>
+            <small class="text-muted"><span class="tags">{{show.properties.tags}}</span> &nbsp;&middot;&nbsp; {{show.properties.price | noFractionCurrency}}</small> 
+          </div>
+        </li>
+      </ul>
+   
+
+      <div class="position" ng-show="player.progress">
+    <span class="track-progress" ng-click="setPosition($event)"><span class="bar" style="width: {{ player.progress }}%;"></span></span>
+    <span class="time-elapsed">{{ player.position }}</span> /
+    <span class="total-time"  >{{ player.duration }}</span>
+    </div>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!-- /column -->
+  <!-- column -->
+  <div class="col item">
+    <leaflet center="center" events="events" geojson="geojson" defaults="defaults"></leaflet>
+    
+    <div class="bottom text-right w-full">
+      <small class="text-muted wrapper-sm block">Map side</small>
+    </div>
+  </div>
+  <!-- /column -->
+
+</div>
+<!-- /hbox layout -->
+
+    </div>
+  </div>
+  <!-- / content -->
+
+  <!-- footer -->
+  <footer id="footer" class="app-footer" role="footer">
+
+
+
+    <div class="wrapper b-t bg-light">
+
+    <span class="pull-left"> About </span>
+
+
+
+      <span class="pull-right">0.5 <a href ui-scroll="app" class="m-l-sm"><i class="fa fa-long-arrow-up"></i></a></span>
+    
+    </div>
+
+
+  
+
+  </footer>
+  <!-- / footer -->
+
+</div>
+
+
+
+<!--
+  <div class="clear">
+            <div><a href>{{show.properties.artist}}</a></div>
+            <small class="text-muted"> {{show.properties.venue}}&nbsp;&middot;&nbsp; {{show.properties.date | date: 'EEEE, MMMM d h:mm a'}}</small>
+            <br>
+            <small class="text-muted"><span class="tags">{{show.properties.tags}}</span> &nbsp;&middot;&nbsp; {{show.properties.price | noFractionCurrency}}</small> 
+          </div>
+          -->

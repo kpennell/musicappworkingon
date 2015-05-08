@@ -1,0 +1,136 @@
+<div class="container w-xxl w-auto-xs">
+  <a href class="navbar-brand block m-t">Vibesample</a>
+  <div class="m-b-lg">
+    <form name="form" >
+   
+      <div class="list-group list-group-sm">
+       
+        <div class="wrapper text-center">
+            <strong>Name</strong>
+        </div>
+
+
+        <div class="list-group-item">
+          <input name="name" class="form-control no-border" placeholder="Put Your Name Here" ng-model="profile.name">
+        </div>
+         
+        <br>
+
+        <!--
+        <div class="wrapper text-center">
+            <strong>Change Password</strong>
+        </div>
+
+
+
+        <div class="list-group-item">
+           <input type="password" placeholder="Current Password" class="form-control no-border" ng-model="oldpass">
+        </div>
+
+        <div class="list-group-item">
+           <input type="password" placeholder="New Password" class="form-control no-border" ng-model="newpass" >
+        </div>
+
+         <div class="list-group-item">
+           <input type="password" ng-keypress="clear()" ng-model="confirm" placeholder="Confirm New Password" class="form-control no-border">
+        </div> 
+
+        <br>
+        <a class="btn btn-lg btn-primary btn-block" ng-click="changePassword(oldpass, newpass, confirm)">Change Password</a>
+
+        <p class="error" ng-show="err">{{err}}</p>
+        <p class="good" ng-show="msg">{{msg}}</p>
+
+        <br>
+        <div class="wrapper text-center">
+            <strong>Update Email</strong>
+        </div>
+
+        <div class="list-group-item">
+          <input type="New Email" placeholder="New Email" class="form-control no-border" ng-model="newEmail">
+        </div>
+        <div class="list-group-item">
+           <input type="password" placeholder="Current Password" class="form-control no-border" ng-keypress="clear()" ng-model="pass">
+        </div>
+
+        <br>
+        <a class="btn btn-lg btn-primary btn-block" ng-click="changeEmail(pass, newEmail)">Update Email</a>
+
+         <p class="error" ng-show="emailerr">{{emailerr}}</p>
+        <p class="good" ng-show="emailmsg">{{emailmsg}}</p>
+
+        -->
+
+
+
+      </div>
+
+
+      <a class="btn btn-lg btn-default btn-block" ng-click="signout()">Sign Out</a>
+
+
+    </form>
+  </div>
+  <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
+    {% include 'blocks/page_footer.html' %}
+  </div>
+</div>
+
+
+<!-- 
+
+<form>
+    <fieldset>
+        <legend>Change Password</legend>
+
+        <label>
+            <span>Old Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="oldpass"/>
+        </label>
+
+        <label>
+            <span>New Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="newpass"/>
+        </label>
+
+        <label>
+            <span>Confirm New Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="confirm"/>
+        </label>
+
+        <button ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
+
+        <p class="error" ng-show="err">{{err}}</p>
+        <p class="good" ng-show="msg">{{msg}}</p>
+    </fieldset>
+</form>
+
+<form>
+    <fieldset>
+        <legend>Change Email</legend>
+
+        <label>
+            <span>New Email:</span>
+            <input type="text" ng-keypress="clear()" ng-model="newEmail"/>
+        </label>
+
+        <label>
+            <span>Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="pass"/>
+        </label>
+
+        <button ng-click="changeEmail(pass, newEmail)">update email</button>
+
+        <p class="error" ng-show="emailerr">{{emailerr}}</p>
+        <p class="good" ng-show="emailmsg">{{emailmsg}}</p>
+    </fieldset>
+</form>
+
+
+-->
+
+
+
+
+
+
